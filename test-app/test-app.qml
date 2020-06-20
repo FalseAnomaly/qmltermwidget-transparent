@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QMLTermWidget 1.0
+import QmlTermWidgetTransparent 1.0
 import QtQuick.Controls 1.2
 
 Rectangle {
@@ -21,7 +21,7 @@ Rectangle {
         shortcut: "Ctrl+F"
     }
 
-    QMLTermWidget {
+    QmlTermWidgetTransparent {
         id: terminal
         anchors.fill: parent
         font.family: "Monospace"

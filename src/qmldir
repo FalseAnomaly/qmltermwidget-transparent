@@ -1,4 +1,4 @@
-module QMLTermWidget
-plugin qmltermwidget
+module QmlTermWidgetTransparent
+plugin QmlTermWidgetTransparent
 QMLTermScrollbar 1.0 QMLTermScrollbar.qml
 

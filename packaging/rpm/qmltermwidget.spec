@@ -1,5 +1,5 @@
 #
-# spec file for package QMLTermWidget
+# spec file for package QmlTermWidgetTransparent
 #
 # Copyright © 2014 Markus S. <kamikazow@web.de>
 #
@@ -16,16 +16,16 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-Name:       qmltermwidget
+Name:       QmlTermWidgetTransparent
 Summary:    QML Terminal Widget
 Version:    1.0
 Release:    0%{?dist}
 Group:      System/X11/Terminals
 License:    GPL-2.0+
-URL:        https://github.com/Swordfish90/qmltermwidget
+URL:        https://github.com/Swordfish90/QmlTermWidgetTransparent
 
-# For this spec file to work, the QMLTermWidget sources must be located
-# in a directory named QMLTermWidget-0.9 (with "0.9" being the version
+# For this spec file to work, the QmlTermWidgetTransparent sources must be located
+# in a directory named QmlTermWidgetTransparent-0.9 (with "0.9" being the version
 # number defined above).
 # If the sources are compressed in another format than .tar.xz, change the
 # file extension accordingly.
@@ -37,7 +37,7 @@ BuildRequires: pkgconfig(Qt5Gui)
 BuildRequires: pkgconfig(Qt5Quick)
 
 %description
-QMLTermWidget is a projekt to enable developers to embed a terminal emulator in QML-based applications.
+QmlTermWidgetTransparent is a projekt to enable developers to embed a terminal emulator in QML-based applications.
 
 %prep
 %setup -q

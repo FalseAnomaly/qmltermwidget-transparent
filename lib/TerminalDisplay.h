@@ -33,7 +33,7 @@
 //#include "konsole_export.h"
 #define KONSOLEPRIVATE_EXPORT
 
-// QMLTermWidget
+// QmlTermWidgetTransparent
 #include "ksession.h"
 #include "ColorScheme.h"
 
@@ -548,7 +548,7 @@ public slots:
     
     void selectionChanged();
 
-    // QMLTermWidget
+    // QmlTermWidgetTransparent
     void setColorScheme(const QString &name);
     QString colorScheme() const;
     QStringList availableColorSchemes();
@@ -607,7 +607,7 @@ signals:
 
     void notifyBell(const QString& bell);
 
-    // QMLTermWidget
+    // QmlTermWidgetTransparent
     void sessionChanged();
     void sizeChanged();
     void usesMouseChanged();
@@ -671,7 +671,7 @@ protected:
     virtual void inputMethodEvent ( QInputMethodEvent* event );
     virtual QVariant inputMethodQuery( Qt::InputMethodQuery query ) const;
 
-    // QMLTermWidget
+    // QmlTermWidgetTransparent
     void paint(QPainter * painter);
     virtual void geometryChanged(const QRectF & newGeometry, const QRectF & oldGeometry);
     void inputMethodQuery(QInputMethodQueryEvent *event);
@@ -886,7 +886,7 @@ private:
     static const int DEFAULT_LEFT_MARGIN = 1;
     static const int DEFAULT_TOP_MARGIN = 1;
 
-    // QMLTermWidget port functions
+    // QmlTermWidgetTransparent port functions
     QFont m_font;
     QPalette m_palette;
     QPalette::ColorRole m_color_role;

@@ -1,11 +1,11 @@
 TEMPLATE = lib
-TARGET = qmltermwidget
+TARGET = QmlTermWidgetTransparent
 QT += qml quick widgets
 CONFIG += qt plugin
 
 include(lib.pri)
 
-DESTDIR = $$OUT_PWD/QMLTermWidget
+DESTDIR = $$OUT_PWD/QmlTermWidgetTransparent
 
 DEFINES += HAVE_POSIX_OPENPT HAVE_SYS_TIME_H
 macx:DEFINES += HAVE_UTMPX _UTMPX_COMPAT HAVE_PTSNAME HAVE_UNLOCKPT HAVE_GRANTPT
@@ -36,7 +36,7 @@ QMAKE_POST_LINK = $(COPY_DIR) $$PWD/lib/color-schemes $$DESTDIR && \
 #########################################
 
 INSTALL_DIR = $$[QT_INSTALL_QML]
-PLUGIN_IMPORT_PATH = QMLTermWidget
+PLUGIN_IMPORT_PATH = QmlTermWidgetTransparent
 PLUGIN_ASSETS = $$PWD/src/QMLTermScrollbar.qml \
                 $$PWD/lib/kb-layouts \
                 $$PWD/lib/color-schemes

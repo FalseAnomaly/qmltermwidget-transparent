@@ -1,8 +1,8 @@
 import QtQuick 2.0
-import QMLTermWidget 1.0
+import QmlTermWidgetTransparent 1.0
 
 Item {
-    property QMLTermWidget terminal
+    property QmlTermWidgetTransparent terminal
 
     property int value: terminal.scrollbarCurrentValue
     property int minimum: terminal.scrollbarMinimum

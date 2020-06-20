@@ -44,6 +44,7 @@
 #include <QUrl>
 #include <QMimeData>
 #include <QDrag>
+#include <QColor>
 
 // KDE
 //#include <kshell.h>
@@ -643,10 +644,10 @@ void TerminalDisplay::drawBackground(QPainter& painter, const QRect& rect, const
         QRegion contentsRegion = QRegion(rect).subtracted(scrollBarArea);
         QRect contentsRect = contentsRegion.boundingRect();
 
-        if ( HAVE_TRANSPARENCY && qAlpha(_blendColor) < 0xff && useOpacitySetting ) 
+        if ( true ) 
         {
             QColor color(backgroundColor);
-            color.setAlpha(qAlpha(_blendColor));
+            color.setAlpha(qAlpha(0));
 
             painter.save();
             painter.setCompositionMode(QPainter::CompositionMode_Source);
@@ -681,7 +682,7 @@ void TerminalDisplay::drawCursor(QPainter& painter,
             // it is draw entirely inside 'rect'
             int penWidth = qMax(1,painter.pen().width());
 
-            // QMLTermWidget: we need to add penWidth%2 to have a perfectly squared cursor
+            // QmlTermWidgetTransparent: we need to add penWidth%2 to have a perfectly squared cursor
 //            painter.drawRect(cursorRect.adjusted(penWidth/2 + penWidth%2,
 //                                                 penWidth/2 + penWidth%2,
 
@@ -690,7 +691,7 @@ void TerminalDisplay::drawCursor(QPainter& painter,
                                                  - penWidth/2 - penWidth%2,
                                                  - penWidth/2 - penWidth%2));
             //if ( hasFocus() )
-            if ( true ) //QMLTermWidget: Always fill the cursor. Even when not in focus.
+            if ( true ) //QmlTermWidgetTransparent: Always fill the cursor. Even when not in focus.
             {
                 painter.fillRect(cursorRect, _cursorColor.isValid() ? _cursorColor : foregroundColor);
             
@@ -753,7 +754,7 @@ void TerminalDisplay::drawCharacters(QPainter& painter,
     if ( pen.color() != color )
     {
         pen.setColor(color);
-        painter.setPen(color);
+        painter.setPen(pen);
     }
 
     // draw text
@@ -792,7 +793,7 @@ void TerminalDisplay::drawTextFragment(QPainter& painter ,
     // draw background if different from the display's background color
     if ( backgroundColor != palette().background().color() )
         drawBackground(painter,rect,backgroundColor,
-                       false /* do not use transparency */);
+                       true /* do not use transparency */);
 
     // draw cursor shape if the current character is the cursor
     // this may alter the foreground and background colors
@@ -996,7 +997,7 @@ void TerminalDisplay::updateImage()
   if ( !_screenWindow )
       return;
 
-  // TODO QMLTermWidget at the moment I'm disabling this.
+  // TODO QmlTermWidgetTransparent at the moment I'm disabling this.
   // Since this can't be scrolled we need to determine if this
   // is useful or not.
 
@@ -1277,7 +1278,7 @@ void TerminalDisplay::paint(QPainter *painter)
     // TODO This function might be optimized.
     QRect clipRect = painter->clipBoundingRect().toAlignedRect();
     QRect dirtyRect = clipRect.isValid() ? clipRect : contentsRect();
-    //drawBackground(*painter, rect, m_palette.background().color(), false /* use opacity setting */);
+    drawBackground(*painter, dirtyRect, m_palette.background().color(), true /* use opacity setting */);
     drawContents(*painter, dirtyRect);
 
     //drawInputMethodPreeditString(*painter, preeditRect());
@@ -1728,7 +1729,7 @@ void TerminalDisplay::scrollBarPositionChanged(int)
 
   updateImage();
 
-  // QMLTermWidget: notify qml side of the change only when needed.
+  // QmlTermWidgetTransparent: notify qml side of the change only when needed.
   emit scrollbarValueChanged();
 }
 
@@ -3160,7 +3161,7 @@ bool AutoScrollHandler::eventFilter(QObject* watched,QEvent* event)
     return false;
 }
 
-// QMLTermWidget specific functions ///////////////////////////////////////////
+// QmlTermWidgetTransparent specific functions ///////////////////////////////////////////
 
 void TerminalDisplay::geometryChanged(const QRectF &newGeometry, const QRectF &oldGeometry)
 {

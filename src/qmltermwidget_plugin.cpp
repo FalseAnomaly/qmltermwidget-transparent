@@ -12,7 +12,7 @@ using namespace Konsole;
 void QmltermwidgetPlugin::registerTypes(const char *uri)
 {
     // @uri org.qterminal.qmlterminal
-    qmlRegisterType<TerminalDisplay>(uri, 1, 0, "QMLTermWidget");
+    qmlRegisterType<TerminalDisplay>(uri, 1, 0, "QmlTermWidgetTransparent");
     qmlRegisterType<KSession>(uri, 1, 0, "QMLTermSession");
 }
 
@@ -27,8 +27,8 @@ void QmltermwidgetPlugin::initializeEngine(QQmlEngine *engine, const char *uri)
         QString cs, kbl;
 
         foreach (QString pwd, pwds) {
-            cs  = pwd + "/QMLTermWidget/color-schemes";
-            kbl = pwd + "/QMLTermWidget/kb-layouts";
+            cs  = pwd + "/QmlTermWidgetTransparent/color-schemes";
+            kbl = pwd + "/QmlTermWidgetTransparent/kb-layouts";
             if (QDir(cs).exists()) break;
         }
 

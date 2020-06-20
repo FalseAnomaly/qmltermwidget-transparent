@@ -45,7 +45,7 @@
 #include "ShellCommand.h"
 #include "Vt102Emulation.h"
 
-// QMLTermWidget
+// QmlTermWidgetTransparent
 #include <QQuickWindow>
 
 using namespace Konsole;
@@ -508,7 +508,7 @@ void Session::updateTerminalSize()
     //select largest number of lines and columns that will fit in all visible views
     while ( viewIter.hasNext() ) {
         TerminalDisplay * view = viewIter.next();
-        if ( //!view->isVisible() == false && QMLTermWidget: We need to disable this check. It has issues when resizing invisible terminal.
+        if ( //!view->isVisible() == false && QmlTermWidgetTransparent: We need to disable this check. It has issues when resizing invisible terminal.
                 view->lines() >= VIEW_LINES_THRESHOLD &&
                 view->columns() >= VIEW_COLUMNS_THRESHOLD ) {
             minLines = (minLines == -1) ? view->lines() : qMin( minLines , view->lines() );

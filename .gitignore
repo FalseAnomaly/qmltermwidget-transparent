@@ -1,1 +1,5 @@
 *.user
+*.o
+.qmake.stash
+*.cpp
+QmlTermWidgetTransparet
