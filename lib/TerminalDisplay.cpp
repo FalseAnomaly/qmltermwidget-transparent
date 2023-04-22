@@ -647,7 +647,7 @@ void TerminalDisplay::drawBackground(QPainter& painter, const QRect& rect, const
         if ( true ) 
         {
             QColor color(backgroundColor);
-            color.setAlpha(qAlpha(color.value()<16?0:255));
+            color.setAlpha(color.value()<16?0:255);
 
             painter.save();
             painter.setCompositionMode(QPainter::CompositionMode_Source);
