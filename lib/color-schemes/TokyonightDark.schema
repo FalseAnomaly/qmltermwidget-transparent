@@ -1,0 +1,42 @@
+# example scheme for konsole
+
+# the title is to appear in the menu.
+
+title Tokyonight Dark
+
+# foreground colors
+
+# note that the default background color is flagged
+# to become transparent when an image is present.
+
+#   slot    transparent bold
+#      |              | |
+#      V V--color--V  V V
+
+color  0 192 202 245  0 0  # regular   foreground color
+color  1   0   0   0  1 0  # regular   background color
+
+color  2  21  22  30  0 0  # regular   color 0 Black
+color  3 247 118 142  0 0  # regular   color 1 Red
+color  4 158 206 106  0 0  # regular   color 2 Green
+color  5 224 175 104  0 0  # regular   color 3 Yellow
+color  6 122 162 247  0 0  # regular   color 4 Blue
+color  7 187 154 247  0 0  # regular   color 5 Magenta
+color  8 125 207 255  0 0  # regular   color 6 Cyan
+color  9 169 177 214  0 0  # regular   color 7 White
+
+# intensive colors
+
+# instead of changing the colors, we've flaged the text to become bold
+
+color 10 192 202 245  0 1  # intensive foreground color
+color 11  26  27  38  1 0  # intensive background color
+
+color 12  65  72 104  0 1  # intensive color 0
+color 13 247 118 142  0 1  # intensive color 1
+color 14 158 206 106  0 1  # intensive color 2
+color 15 224 175 104  0 1  # intensive color 3
+color 16 122 162 247  0 1  # intensive color 4
+color 17 187 154 247  0 1  # intensive color 5
+color 18 125 207 255  0 1  # intensive color 6
+color 19 192 202 245  0 1  # intensive color 7
